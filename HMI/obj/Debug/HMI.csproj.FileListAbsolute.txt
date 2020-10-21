@@ -1,0 +1,10 @@
+C:\Users\sangr\OneDrive\Projects\HMI\HMI\bin\Debug\HMI.exe.config
+C:\Users\sangr\OneDrive\Projects\HMI\HMI\bin\Debug\HMI.exe
+C:\Users\sangr\OneDrive\Projects\HMI\HMI\bin\Debug\HMI.pdb
+C:\Users\sangr\OneDrive\Projects\HMI\HMI\obj\Debug\HMI.csprojAssemblyReference.cache
+C:\Users\sangr\OneDrive\Projects\HMI\HMI\obj\Debug\HMI.MainForm.resources
+C:\Users\sangr\OneDrive\Projects\HMI\HMI\obj\Debug\HMI.Properties.Resources.resources
+C:\Users\sangr\OneDrive\Projects\HMI\HMI\obj\Debug\HMI.csproj.GenerateResource.cache
+C:\Users\sangr\OneDrive\Projects\HMI\HMI\obj\Debug\HMI.csproj.CoreCompileInputs.cache
+C:\Users\sangr\OneDrive\Projects\HMI\HMI\obj\Debug\HMI.exe
+C:\Users\sangr\OneDrive\Projects\HMI\HMI\obj\Debug\HMI.pdb
