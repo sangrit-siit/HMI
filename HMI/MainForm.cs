@@ -8,8 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using PowerSource;
-
+using Cebora;
+using Galil;
 using Peak.Can.Basic;
 using TPCANHandle = System.Byte;
 
@@ -18,7 +18,9 @@ namespace HMI
     public partial class MainForm : Form
     {
         
-        private Cebora mCebora;
+        private PowerSource mPowerSource;
+        private MotionController mMotionController;
+
         public MainForm()
         {
             InitializeComponent();
@@ -26,6 +28,49 @@ namespace HMI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void Poll()
+        {
+/*
+            #region Digital Signals
+            this.PowerSourceStatus.Text = mPowerSource.DigitalSignals["PowerSourceReady"] == 1 ? "ready".ToUpper() : "not ready".ToUpper();
+            this.PowerSourceStatus.ForeColor = mPowerSource.DigitalSignals["PowerSourceReady"] == 1 ? Color.Green : Color.Red;
+
+            this.CommunicationStatus.Text = mPowerSource.DigitalSignals["CommunicationReady"] == 1 ? "ready".ToUpper() : "not ready".ToUpper();
+            this.CommunicationStatus.ForeColor = mPowerSource.DigitalSignals["CommunicationReady"] == 1 ? Color.Green : Color.Red;
+
+            this.PilotArcStatus.Text = mPowerSource.DigitalSignals["PilotArc"] == 1 ? "started".ToUpper() : "idle".ToUpper();
+            this.PilotArcStatus.ForeColor = mPowerSource.DigitalSignals["PilotArc"] == 1 ? Color.Yellow : Color.Green;
+
+            this.ProcessStatus.Text = mPowerSource.DigitalSignals["ProcessActive"] == 1 ? "active".ToUpper() : "inactive".ToUpper();
+            this.ProcessStatus.ForeColor = mPowerSource.DigitalSignals["ProcessActive"] == 1 ? Color.Red : Color.Green;
+
+            this.ErrorNumber.Text = mPowerSource.DigitalSignals["ErrorNumber"].ToString();
+            #endregion Digital Signals
+
+            #region Analog Signals
+            this.WeldingVoltageGauge.To = 100.0;
+            this.WeldingVoltageGauge.Value = Convert.ToDouble(mPowerSource.AnalogSignals["A0"].ToString("0.#"));
+            this.WeldingCurrentGauge.To = 1000.0;
+            this.WeldingCurrentGauge.Value = Convert.ToDouble(mPowerSource.AnalogSignals["A1"].ToString("0.#"));
+            #endregion Analog Signals
+
+            this.ArcButton.Text = mPowerSource.RobotDigitalSignals["ArcOn"] == 1 ? "arc off".ToUpper() : "arc on".ToUpper();
+*/
+            this.MotionControllerStatus.Text = mMotionController.Connected == true ? "connected".ToUpper() : "disconnected".ToUpper();
+            this.MotionControllerStatus.ForeColor = mMotionController.Connected == true ? Color.Green : Color.Red;
+        }
+
+        private void mPollingTimer_Tick(object sender, EventArgs e)
+        {
+            this.Poll();
+        }
+
+        private void ConnectButton_Click(object sender, EventArgs e)
+        {
+/*
             TPCANHandle channel;
             TPCANBaudrate baudrate;
             TPCANType hwType;
@@ -34,43 +79,36 @@ namespace HMI
             baudrate = TPCANBaudrate.PCAN_BAUD_125K;
             hwType = TPCANType.PCAN_TYPE_ISA;
 
-            mCebora = new Cebora(0x2, channel, baudrate, hwType);
-            TPCANStatus result = mCebora.Init();
+            mPowerSource = new PowerSource(0x2, channel, baudrate, hwType);
+            TPCANStatus result = mPowerSource.Init();
+            if(result == TPCANStatus.PCAN_ERROR_OK)
+                mPollingTimer.Enabled = true;
+*/
+            string ip = "192.168.0.43";
 
-            if (result == TPCANStatus.PCAN_ERROR_OK)
-                mUpdateTimer.Enabled = true;
-
+            mMotionController = new MotionController(ip);
+            mMotionController.Open();
+            mPollingTimer.Enabled = true;
         }
 
-        private void Update()
+        private void PilotArcButton_Click(object sender, EventArgs e)
         {
-            #region Digital Signals
-            this.CurrentFlowLed.BackColor = this.mCebora.DigitalSignals["CurrentFlow"] == 1 ? Color.Green : Color.Red;            
-            this.ProcessActiveLed.BackColor = this.mCebora.DigitalSignals["ProcessActive"] == 1 ? Color.Green : Color.Red;
-            this.MainCurrentLed.BackColor = this.mCebora.DigitalSignals["MainCurrent"] == 1 ? Color.Green : Color.Red;
-            this.CollisionProtectionLed.BackColor = this.mCebora.DigitalSignals["CollisionProtection"] == 1 ? Color.Green : Color.Red;
-            this.PowerSourceReadyLed.BackColor = this.mCebora.DigitalSignals["PowerSourceReady"] == 1 ? Color.Green : Color.Red;
-            this.CommunicationReadyLed.BackColor = this.mCebora.DigitalSignals["CommunicationReady"] == 1 ? Color.Green : Color.Red;
-            this.PulseSyncLed.BackColor = this.mCebora.DigitalSignals["PulseSync"] == 1 ? Color.Green : Color.Red;
-            this.PilotArcLed.BackColor = this.mCebora.DigitalSignals["PilotArc"] == 1 ? Color.Green : Color.Red;
-            this.StickingRemediedLed.BackColor = this.mCebora.DigitalSignals["StickingRemedied"] == 1 ? Color.Green : Color.Red;
-            this.WireAvailableLed.BackColor = this.mCebora.DigitalSignals["WireAvailable"] == 1 ? Color.Green : Color.Red;
-            #endregion Digital Signals
-
-            #region Analog Signals
-            this.AnalogMeasure0.Text = this.mCebora.AnalogSignals["A0"].ToString("0.#");
-            this.AnalogMeasure1.Text = this.mCebora.AnalogSignals["A1"].ToString("0.#");
-            this.AnalogMeasure2.Text = this.mCebora.AnalogSignals["A2"].ToString("0.#");
-            this.AnalogMeasure3.Text = this.mCebora.AnalogSignals["A3"].ToString("0.#");
-            this.AnalogMeasure4.Text = this.mCebora.AnalogSignals["A4"].ToString("0.#");
-            this.AnalogMeasure5.Text = this.mCebora.AnalogSignals["A5"].ToString("0.#");
-            #endregion Analog Signals
+            mPowerSource.RobotDigitalSignals["PilotArcStart"] ^= 1;
+            mPowerSource.Update();
         }
 
-        private void mUpdateTimer_Tick(object sender, EventArgs e)
+        private void ArcButton_Click(object sender, EventArgs e)
         {
-            this.Update();
+            mPowerSource.RobotDigitalSignals["ArcOn"] ^= 1;
+            mPowerSource.RobotDigitalSignals["PilotArcStart"] = 0;
+            mPowerSource.Update();
         }
+
+        private void ResetButton_Click(object sender, EventArgs e)
+        {
+            mPowerSource.Reset();
+        }
+
     }
 
 }

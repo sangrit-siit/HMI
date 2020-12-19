@@ -29,440 +29,531 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.CurrentFlowLed = new System.Windows.Forms.Panel();
-            this.CurrentFlowLabel = new System.Windows.Forms.Label();
-            this.ProcessActiveLed = new System.Windows.Forms.Panel();
-            this.ProcessActiveLabel = new System.Windows.Forms.Label();
-            this.MainCurrentLed = new System.Windows.Forms.Panel();
-            this.MainCurrentLabel = new System.Windows.Forms.Label();
-            this.CollisionProtectionLed = new System.Windows.Forms.Panel();
-            this.CollisionProtectionLabel = new System.Windows.Forms.Label();
-            this.PowerSourceReadyLed = new System.Windows.Forms.Panel();
-            this.PowerSourceReadyLabel = new System.Windows.Forms.Label();
-            this.CommunicationReadyLed = new System.Windows.Forms.Panel();
-            this.CommunicationReadyLabel = new System.Windows.Forms.Label();
-            this.PulseSyncLed = new System.Windows.Forms.Panel();
-            this.PulseSyncLabel = new System.Windows.Forms.Label();
-            this.PilotArcLed = new System.Windows.Forms.Panel();
-            this.PilotArcLabel = new System.Windows.Forms.Label();
-            this.StickingRemediedLed = new System.Windows.Forms.Panel();
-            this.StickingRemediedLabel = new System.Windows.Forms.Label();
-            this.WireAvailableLed = new System.Windows.Forms.Panel();
-            this.WireAvailableLabel = new System.Windows.Forms.Label();
-            this.WeldingVoltageMeasureLabel = new System.Windows.Forms.Label();
-            this.WeldingCurrentMeasureLabel = new System.Windows.Forms.Label();
-            this.MotorCurrentMeasureLabel = new System.Windows.Forms.Label();
-            this.WireSpeedMeasureLabel = new System.Windows.Forms.Label();
+            this.mPollingTimer = new System.Windows.Forms.Timer(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.PowerSourceStatus = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.CommunicationStatus = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.PilotArcStatus = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.ProcessStatus = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.WeldingVoltageGauge = new LiveCharts.WinForms.SolidGauge();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.WeldingCurrentGauge = new LiveCharts.WinForms.SolidGauge();
+            this.ConnectButton = new System.Windows.Forms.Button();
+            this.ResetButton = new System.Windows.Forms.Button();
             this.PilotArcButton = new System.Windows.Forms.Button();
             this.ArcButton = new System.Windows.Forms.Button();
-            this.PlasmaGasFlowLabel = new System.Windows.Forms.Label();
-            this.ShieldGasFlowLabel = new System.Windows.Forms.Label();
-            this.AnalogMeasure0 = new System.Windows.Forms.Label();
-            this.AnalogMeasure1 = new System.Windows.Forms.Label();
-            this.AnalogMeasure2 = new System.Windows.Forms.Label();
-            this.AnalogMeasure3 = new System.Windows.Forms.Label();
-            this.AnalogMeasure4 = new System.Windows.Forms.Label();
-            this.AnalogMeasure5 = new System.Windows.Forms.Label();
-            this.mUpdateTimer = new System.Windows.Forms.Timer(this.components);
+            this.ConfigureButton = new System.Windows.Forms.Button();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.ErrorNumber = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.MotionControllerStatus = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel14.SuspendLayout();
             this.SuspendLayout();
             // 
-            // CurrentFlowLed
+            // mPollingTimer
             // 
-            this.CurrentFlowLed.BackColor = System.Drawing.Color.Red;
-            this.CurrentFlowLed.Location = new System.Drawing.Point(12, 12);
-            this.CurrentFlowLed.Name = "CurrentFlowLed";
-            this.CurrentFlowLed.Size = new System.Drawing.Size(15, 15);
-            this.CurrentFlowLed.TabIndex = 0;
+            this.mPollingTimer.Tick += new System.EventHandler(this.mPollingTimer_Tick);
             // 
-            // CurrentFlowLabel
+            // panel1
             // 
-            this.CurrentFlowLabel.AutoSize = true;
-            this.CurrentFlowLabel.Location = new System.Drawing.Point(33, 14);
-            this.CurrentFlowLabel.Name = "CurrentFlowLabel";
-            this.CurrentFlowLabel.Size = new System.Drawing.Size(66, 13);
-            this.CurrentFlowLabel.TabIndex = 1;
-            this.CurrentFlowLabel.Text = "Current Flow";
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.panel7);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(205, 116);
+            this.panel1.TabIndex = 4;
             // 
-            // ProcessActiveLed
+            // panel7
             // 
-            this.ProcessActiveLed.BackColor = System.Drawing.Color.Red;
-            this.ProcessActiveLed.Location = new System.Drawing.Point(12, 33);
-            this.ProcessActiveLed.Name = "ProcessActiveLed";
-            this.ProcessActiveLed.Size = new System.Drawing.Size(15, 15);
-            this.ProcessActiveLed.TabIndex = 1;
+            this.panel7.Controls.Add(this.PowerSourceStatus);
+            this.panel7.Location = new System.Drawing.Point(-1, 28);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(205, 58);
+            this.panel7.TabIndex = 12;
             // 
-            // ProcessActiveLabel
+            // PowerSourceStatus
             // 
-            this.ProcessActiveLabel.AutoSize = true;
-            this.ProcessActiveLabel.Location = new System.Drawing.Point(33, 35);
-            this.ProcessActiveLabel.Name = "ProcessActiveLabel";
-            this.ProcessActiveLabel.Size = new System.Drawing.Size(78, 13);
-            this.ProcessActiveLabel.TabIndex = 2;
-            this.ProcessActiveLabel.Text = "Process Active";
+            this.PowerSourceStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PowerSourceStatus.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PowerSourceStatus.ForeColor = System.Drawing.Color.Red;
+            this.PowerSourceStatus.Location = new System.Drawing.Point(0, 0);
+            this.PowerSourceStatus.Name = "PowerSourceStatus";
+            this.PowerSourceStatus.Size = new System.Drawing.Size(205, 58);
+            this.PowerSourceStatus.TabIndex = 1;
+            this.PowerSourceStatus.Text = "DISCONNECTED";
+            this.PowerSourceStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // MainCurrentLed
+            // label1
             // 
-            this.MainCurrentLed.BackColor = System.Drawing.Color.Red;
-            this.MainCurrentLed.Location = new System.Drawing.Point(12, 54);
-            this.MainCurrentLed.Name = "MainCurrentLed";
-            this.MainCurrentLed.Size = new System.Drawing.Size(15, 15);
-            this.MainCurrentLed.TabIndex = 2;
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(105, 21);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Power Source";
             // 
-            // MainCurrentLabel
+            // panel2
             // 
-            this.MainCurrentLabel.AutoSize = true;
-            this.MainCurrentLabel.Location = new System.Drawing.Point(33, 56);
-            this.MainCurrentLabel.Name = "MainCurrentLabel";
-            this.MainCurrentLabel.Size = new System.Drawing.Size(67, 13);
-            this.MainCurrentLabel.TabIndex = 3;
-            this.MainCurrentLabel.Text = "Main Current";
-            this.MainCurrentLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.panel8);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Location = new System.Drawing.Point(223, 12);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(205, 116);
+            this.panel2.TabIndex = 5;
             // 
-            // CollisionProtectionLed
+            // panel8
             // 
-            this.CollisionProtectionLed.BackColor = System.Drawing.Color.Red;
-            this.CollisionProtectionLed.Location = new System.Drawing.Point(12, 75);
-            this.CollisionProtectionLed.Name = "CollisionProtectionLed";
-            this.CollisionProtectionLed.Size = new System.Drawing.Size(15, 15);
-            this.CollisionProtectionLed.TabIndex = 3;
+            this.panel8.Controls.Add(this.CommunicationStatus);
+            this.panel8.Location = new System.Drawing.Point(-1, 28);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(205, 58);
+            this.panel8.TabIndex = 13;
             // 
-            // CollisionProtectionLabel
+            // CommunicationStatus
             // 
-            this.CollisionProtectionLabel.AutoSize = true;
-            this.CollisionProtectionLabel.Location = new System.Drawing.Point(33, 77);
-            this.CollisionProtectionLabel.Name = "CollisionProtectionLabel";
-            this.CollisionProtectionLabel.Size = new System.Drawing.Size(96, 13);
-            this.CollisionProtectionLabel.TabIndex = 4;
-            this.CollisionProtectionLabel.Text = "Collision Protection";
-            this.CollisionProtectionLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.CommunicationStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CommunicationStatus.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CommunicationStatus.ForeColor = System.Drawing.Color.Red;
+            this.CommunicationStatus.Location = new System.Drawing.Point(0, 0);
+            this.CommunicationStatus.Name = "CommunicationStatus";
+            this.CommunicationStatus.Size = new System.Drawing.Size(205, 58);
+            this.CommunicationStatus.TabIndex = 1;
+            this.CommunicationStatus.Text = "DISCONNECTED";
+            this.CommunicationStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // PowerSourceReadyLed
+            // label3
             // 
-            this.PowerSourceReadyLed.BackColor = System.Drawing.Color.Red;
-            this.PowerSourceReadyLed.Location = new System.Drawing.Point(12, 96);
-            this.PowerSourceReadyLed.Name = "PowerSourceReadyLed";
-            this.PowerSourceReadyLed.Size = new System.Drawing.Size(15, 15);
-            this.PowerSourceReadyLed.TabIndex = 4;
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(121, 21);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Communication";
             // 
-            // PowerSourceReadyLabel
+            // panel4
             // 
-            this.PowerSourceReadyLabel.AutoSize = true;
-            this.PowerSourceReadyLabel.Location = new System.Drawing.Point(33, 98);
-            this.PowerSourceReadyLabel.Name = "PowerSourceReadyLabel";
-            this.PowerSourceReadyLabel.Size = new System.Drawing.Size(108, 13);
-            this.PowerSourceReadyLabel.TabIndex = 5;
-            this.PowerSourceReadyLabel.Text = "Power Source Ready";
-            this.PowerSourceReadyLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.panel9);
+            this.panel4.Controls.Add(this.label7);
+            this.panel4.Location = new System.Drawing.Point(12, 134);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(205, 116);
+            this.panel4.TabIndex = 5;
             // 
-            // CommunicationReadyLed
+            // panel9
             // 
-            this.CommunicationReadyLed.BackColor = System.Drawing.Color.Red;
-            this.CommunicationReadyLed.Location = new System.Drawing.Point(12, 117);
-            this.CommunicationReadyLed.Name = "CommunicationReadyLed";
-            this.CommunicationReadyLed.Size = new System.Drawing.Size(15, 15);
-            this.CommunicationReadyLed.TabIndex = 5;
+            this.panel9.Controls.Add(this.PilotArcStatus);
+            this.panel9.Location = new System.Drawing.Point(-1, 28);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(205, 58);
+            this.panel9.TabIndex = 14;
             // 
-            // CommunicationReadyLabel
+            // PilotArcStatus
             // 
-            this.CommunicationReadyLabel.AutoSize = true;
-            this.CommunicationReadyLabel.Location = new System.Drawing.Point(33, 119);
-            this.CommunicationReadyLabel.Name = "CommunicationReadyLabel";
-            this.CommunicationReadyLabel.Size = new System.Drawing.Size(113, 13);
-            this.CommunicationReadyLabel.TabIndex = 6;
-            this.CommunicationReadyLabel.Text = "Communication Ready";
-            this.CommunicationReadyLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.PilotArcStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PilotArcStatus.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PilotArcStatus.ForeColor = System.Drawing.Color.Red;
+            this.PilotArcStatus.Location = new System.Drawing.Point(0, 0);
+            this.PilotArcStatus.Name = "PilotArcStatus";
+            this.PilotArcStatus.Size = new System.Drawing.Size(205, 58);
+            this.PilotArcStatus.TabIndex = 1;
+            this.PilotArcStatus.Text = "DISCONNECTED";
+            this.PilotArcStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // PulseSyncLed
+            // label7
             // 
-            this.PulseSyncLed.BackColor = System.Drawing.Color.Red;
-            this.PulseSyncLed.Location = new System.Drawing.Point(12, 138);
-            this.PulseSyncLed.Name = "PulseSyncLed";
-            this.PulseSyncLed.Size = new System.Drawing.Size(15, 15);
-            this.PulseSyncLed.TabIndex = 6;
+            this.label7.AutoSize = true;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(0, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(68, 21);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Pilot Arc";
             // 
-            // PulseSyncLabel
+            // panel5
             // 
-            this.PulseSyncLabel.AutoSize = true;
-            this.PulseSyncLabel.Location = new System.Drawing.Point(33, 140);
-            this.PulseSyncLabel.Name = "PulseSyncLabel";
-            this.PulseSyncLabel.Size = new System.Drawing.Size(60, 13);
-            this.PulseSyncLabel.TabIndex = 7;
-            this.PulseSyncLabel.Text = "Pulse Sync";
-            this.PulseSyncLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.panel10);
+            this.panel5.Controls.Add(this.label9);
+            this.panel5.Location = new System.Drawing.Point(223, 134);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(205, 116);
+            this.panel5.TabIndex = 6;
             // 
-            // PilotArcLed
+            // panel10
             // 
-            this.PilotArcLed.BackColor = System.Drawing.Color.Red;
-            this.PilotArcLed.Location = new System.Drawing.Point(12, 159);
-            this.PilotArcLed.Name = "PilotArcLed";
-            this.PilotArcLed.Size = new System.Drawing.Size(15, 15);
-            this.PilotArcLed.TabIndex = 7;
+            this.panel10.Controls.Add(this.ProcessStatus);
+            this.panel10.Location = new System.Drawing.Point(-1, 28);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(205, 58);
+            this.panel10.TabIndex = 15;
             // 
-            // PilotArcLabel
+            // ProcessStatus
             // 
-            this.PilotArcLabel.AutoSize = true;
-            this.PilotArcLabel.Location = new System.Drawing.Point(33, 159);
-            this.PilotArcLabel.Name = "PilotArcLabel";
-            this.PilotArcLabel.Size = new System.Drawing.Size(46, 13);
-            this.PilotArcLabel.TabIndex = 8;
-            this.PilotArcLabel.Text = "Pilot Arc";
-            this.PilotArcLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ProcessStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProcessStatus.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProcessStatus.ForeColor = System.Drawing.Color.Red;
+            this.ProcessStatus.Location = new System.Drawing.Point(0, 0);
+            this.ProcessStatus.Name = "ProcessStatus";
+            this.ProcessStatus.Size = new System.Drawing.Size(205, 58);
+            this.ProcessStatus.TabIndex = 1;
+            this.ProcessStatus.Text = "DISCONNECTED";
+            this.ProcessStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // StickingRemediedLed
+            // label9
             // 
-            this.StickingRemediedLed.BackColor = System.Drawing.Color.Red;
-            this.StickingRemediedLed.Location = new System.Drawing.Point(12, 180);
-            this.StickingRemediedLed.Name = "StickingRemediedLed";
-            this.StickingRemediedLed.Size = new System.Drawing.Size(15, 15);
-            this.StickingRemediedLed.TabIndex = 8;
+            this.label9.AutoSize = true;
+            this.label9.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(0, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(63, 21);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Process";
             // 
-            // StickingRemediedLabel
+            // panel3
             // 
-            this.StickingRemediedLabel.AutoSize = true;
-            this.StickingRemediedLabel.Location = new System.Drawing.Point(33, 182);
-            this.StickingRemediedLabel.Name = "StickingRemediedLabel";
-            this.StickingRemediedLabel.Size = new System.Drawing.Size(96, 13);
-            this.StickingRemediedLabel.TabIndex = 9;
-            this.StickingRemediedLabel.Text = "Sticking Remedied";
-            this.StickingRemediedLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.label5);
+            this.panel3.Controls.Add(this.label10);
+            this.panel3.Controls.Add(this.WeldingVoltageGauge);
+            this.panel3.Location = new System.Drawing.Point(434, 12);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(205, 116);
+            this.panel3.TabIndex = 6;
             // 
-            // WireAvailableLed
+            // label5
             // 
-            this.WireAvailableLed.BackColor = System.Drawing.Color.Red;
-            this.WireAvailableLed.Location = new System.Drawing.Point(12, 201);
-            this.WireAvailableLed.Name = "WireAvailableLed";
-            this.WireAvailableLed.Size = new System.Drawing.Size(15, 15);
-            this.WireAvailableLed.TabIndex = 9;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(91, 98);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(16, 17);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "V";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
-            // WireAvailableLabel
+            // label10
             // 
-            this.WireAvailableLabel.AutoSize = true;
-            this.WireAvailableLabel.Location = new System.Drawing.Point(33, 203);
-            this.WireAvailableLabel.Name = "WireAvailableLabel";
-            this.WireAvailableLabel.Size = new System.Drawing.Size(75, 13);
-            this.WireAvailableLabel.TabIndex = 10;
-            this.WireAvailableLabel.Text = "Wire Available";
-            this.WireAvailableLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label10.AutoSize = true;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(0, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(123, 21);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "Welding Voltage";
             // 
-            // WeldingVoltageMeasureLabel
+            // WeldingVoltageGauge
             // 
-            this.WeldingVoltageMeasureLabel.AutoSize = true;
-            this.WeldingVoltageMeasureLabel.Location = new System.Drawing.Point(394, 14);
-            this.WeldingVoltageMeasureLabel.Name = "WeldingVoltageMeasureLabel";
-            this.WeldingVoltageMeasureLabel.Size = new System.Drawing.Size(129, 13);
-            this.WeldingVoltageMeasureLabel.TabIndex = 11;
-            this.WeldingVoltageMeasureLabel.Text = "Welding Voltage Measure";
-            this.WeldingVoltageMeasureLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.WeldingVoltageGauge.Location = new System.Drawing.Point(-1, 15);
+            this.WeldingVoltageGauge.Name = "WeldingVoltageGauge";
+            this.WeldingVoltageGauge.Size = new System.Drawing.Size(197, 96);
+            this.WeldingVoltageGauge.TabIndex = 3;
+            this.WeldingVoltageGauge.Text = "solidGauge1";
             // 
-            // WeldingCurrentMeasureLabel
+            // panel6
             // 
-            this.WeldingCurrentMeasureLabel.AutoSize = true;
-            this.WeldingCurrentMeasureLabel.Location = new System.Drawing.Point(394, 33);
-            this.WeldingCurrentMeasureLabel.Name = "WeldingCurrentMeasureLabel";
-            this.WeldingCurrentMeasureLabel.Size = new System.Drawing.Size(127, 13);
-            this.WeldingCurrentMeasureLabel.TabIndex = 12;
-            this.WeldingCurrentMeasureLabel.Text = "Welding Current Measure";
-            this.WeldingCurrentMeasureLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.label2);
+            this.panel6.Controls.Add(this.label12);
+            this.panel6.Controls.Add(this.WeldingCurrentGauge);
+            this.panel6.Location = new System.Drawing.Point(434, 134);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(205, 116);
+            this.panel6.TabIndex = 7;
             // 
-            // MotorCurrentMeasureLabel
+            // label2
             // 
-            this.MotorCurrentMeasureLabel.AutoSize = true;
-            this.MotorCurrentMeasureLabel.Location = new System.Drawing.Point(394, 54);
-            this.MotorCurrentMeasureLabel.Name = "MotorCurrentMeasureLabel";
-            this.MotorCurrentMeasureLabel.Size = new System.Drawing.Size(115, 13);
-            this.MotorCurrentMeasureLabel.TabIndex = 13;
-            this.MotorCurrentMeasureLabel.Text = "Motor Current Measure";
-            this.MotorCurrentMeasureLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(91, 97);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(16, 17);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "A";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
-            // WireSpeedMeasureLabel
+            // label12
             // 
-            this.WireSpeedMeasureLabel.AutoSize = true;
-            this.WireSpeedMeasureLabel.Location = new System.Drawing.Point(394, 75);
-            this.WireSpeedMeasureLabel.Name = "WireSpeedMeasureLabel";
-            this.WireSpeedMeasureLabel.Size = new System.Drawing.Size(107, 13);
-            this.WireSpeedMeasureLabel.TabIndex = 14;
-            this.WireSpeedMeasureLabel.Text = "Wire Speed Measure";
-            this.WireSpeedMeasureLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label12.AutoSize = true;
+            this.label12.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(0, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(124, 21);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "Welding Current";
+            // 
+            // WeldingCurrentGauge
+            // 
+            this.WeldingCurrentGauge.Location = new System.Drawing.Point(-1, 16);
+            this.WeldingCurrentGauge.Name = "WeldingCurrentGauge";
+            this.WeldingCurrentGauge.Size = new System.Drawing.Size(197, 95);
+            this.WeldingCurrentGauge.TabIndex = 4;
+            this.WeldingCurrentGauge.Text = "solidGauge1";
+            // 
+            // ConnectButton
+            // 
+            this.ConnectButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConnectButton.Location = new System.Drawing.Point(12, 378);
+            this.ConnectButton.Name = "ConnectButton";
+            this.ConnectButton.Size = new System.Drawing.Size(205, 43);
+            this.ConnectButton.TabIndex = 8;
+            this.ConnectButton.Text = "CONNECT";
+            this.ConnectButton.UseVisualStyleBackColor = true;
+            this.ConnectButton.Click += new System.EventHandler(this.ConnectButton_Click);
+            // 
+            // ResetButton
+            // 
+            this.ResetButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResetButton.Location = new System.Drawing.Point(223, 378);
+            this.ResetButton.Name = "ResetButton";
+            this.ResetButton.Size = new System.Drawing.Size(205, 43);
+            this.ResetButton.TabIndex = 9;
+            this.ResetButton.Text = "RESET";
+            this.ResetButton.UseVisualStyleBackColor = true;
+            this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
             // 
             // PilotArcButton
             // 
-            this.PilotArcButton.Location = new System.Drawing.Point(397, 213);
+            this.PilotArcButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PilotArcButton.Location = new System.Drawing.Point(434, 378);
             this.PilotArcButton.Name = "PilotArcButton";
-            this.PilotArcButton.Size = new System.Drawing.Size(75, 23);
-            this.PilotArcButton.TabIndex = 15;
-            this.PilotArcButton.Text = "Piloat Arc";
+            this.PilotArcButton.Size = new System.Drawing.Size(205, 43);
+            this.PilotArcButton.TabIndex = 10;
+            this.PilotArcButton.Text = "PILOT ARC";
             this.PilotArcButton.UseVisualStyleBackColor = true;
+            this.PilotArcButton.Click += new System.EventHandler(this.PilotArcButton_Click);
             // 
             // ArcButton
             // 
-            this.ArcButton.Location = new System.Drawing.Point(397, 242);
+            this.ArcButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ArcButton.Location = new System.Drawing.Point(434, 427);
             this.ArcButton.Name = "ArcButton";
-            this.ArcButton.Size = new System.Drawing.Size(75, 23);
-            this.ArcButton.TabIndex = 16;
-            this.ArcButton.Text = "Arc On/Off";
+            this.ArcButton.Size = new System.Drawing.Size(205, 43);
+            this.ArcButton.TabIndex = 11;
+            this.ArcButton.Text = "ARC ON";
             this.ArcButton.UseVisualStyleBackColor = true;
+            this.ArcButton.Click += new System.EventHandler(this.ArcButton_Click);
             // 
-            // PlasmaGasFlowLabel
+            // ConfigureButton
             // 
-            this.PlasmaGasFlowLabel.AutoSize = true;
-            this.PlasmaGasFlowLabel.Location = new System.Drawing.Point(394, 117);
-            this.PlasmaGasFlowLabel.Name = "PlasmaGasFlowLabel";
-            this.PlasmaGasFlowLabel.Size = new System.Drawing.Size(88, 13);
-            this.PlasmaGasFlowLabel.TabIndex = 17;
-            this.PlasmaGasFlowLabel.Text = "Plasma Gas Flow";
-            this.PlasmaGasFlowLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ConfigureButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfigureButton.Location = new System.Drawing.Point(12, 427);
+            this.ConfigureButton.Name = "ConfigureButton";
+            this.ConfigureButton.Size = new System.Drawing.Size(416, 43);
+            this.ConfigureButton.TabIndex = 12;
+            this.ConfigureButton.Text = "CONFIGURATION";
+            this.ConfigureButton.UseVisualStyleBackColor = true;
             // 
-            // ShieldGasFlowLabel
+            // panel11
             // 
-            this.ShieldGasFlowLabel.AutoSize = true;
-            this.ShieldGasFlowLabel.Location = new System.Drawing.Point(394, 138);
-            this.ShieldGasFlowLabel.Name = "ShieldGasFlowLabel";
-            this.ShieldGasFlowLabel.Size = new System.Drawing.Size(83, 13);
-            this.ShieldGasFlowLabel.TabIndex = 18;
-            this.ShieldGasFlowLabel.Text = "Shield Gas Flow";
-            this.ShieldGasFlowLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel11.Controls.Add(this.panel12);
+            this.panel11.Controls.Add(this.label4);
+            this.panel11.Location = new System.Drawing.Point(12, 256);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(205, 116);
+            this.panel11.TabIndex = 15;
             // 
-            // AnalogMeasure0
+            // panel12
             // 
-            this.AnalogMeasure0.AutoSize = true;
-            this.AnalogMeasure0.Location = new System.Drawing.Point(529, 14);
-            this.AnalogMeasure0.Name = "AnalogMeasure0";
-            this.AnalogMeasure0.Size = new System.Drawing.Size(20, 13);
-            this.AnalogMeasure0.TabIndex = 19;
-            this.AnalogMeasure0.Text = "A0";
+            this.panel12.Controls.Add(this.ErrorNumber);
+            this.panel12.Location = new System.Drawing.Point(-1, 28);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(205, 58);
+            this.panel12.TabIndex = 14;
             // 
-            // AnalogMeasure1
+            // ErrorNumber
             // 
-            this.AnalogMeasure1.AutoSize = true;
-            this.AnalogMeasure1.Location = new System.Drawing.Point(529, 35);
-            this.AnalogMeasure1.Name = "AnalogMeasure1";
-            this.AnalogMeasure1.Size = new System.Drawing.Size(20, 13);
-            this.AnalogMeasure1.TabIndex = 20;
-            this.AnalogMeasure1.Text = "A1";
+            this.ErrorNumber.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ErrorNumber.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ErrorNumber.ForeColor = System.Drawing.Color.Red;
+            this.ErrorNumber.Location = new System.Drawing.Point(0, 0);
+            this.ErrorNumber.Name = "ErrorNumber";
+            this.ErrorNumber.Size = new System.Drawing.Size(205, 58);
+            this.ErrorNumber.TabIndex = 1;
+            this.ErrorNumber.Text = "DISCONNECTED";
+            this.ErrorNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // AnalogMeasure2
+            // label4
             // 
-            this.AnalogMeasure2.AutoSize = true;
-            this.AnalogMeasure2.Location = new System.Drawing.Point(529, 54);
-            this.AnalogMeasure2.Name = "AnalogMeasure2";
-            this.AnalogMeasure2.Size = new System.Drawing.Size(20, 13);
-            this.AnalogMeasure2.TabIndex = 21;
-            this.AnalogMeasure2.Text = "A2";
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(107, 21);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Error Number";
             // 
-            // AnalogMeasure3
+            // panel13
             // 
-            this.AnalogMeasure3.AutoSize = true;
-            this.AnalogMeasure3.Location = new System.Drawing.Point(529, 75);
-            this.AnalogMeasure3.Name = "AnalogMeasure3";
-            this.AnalogMeasure3.Size = new System.Drawing.Size(20, 13);
-            this.AnalogMeasure3.TabIndex = 22;
-            this.AnalogMeasure3.Text = "A3";
+            this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel13.Controls.Add(this.panel14);
+            this.panel13.Controls.Add(this.label8);
+            this.panel13.Location = new System.Drawing.Point(228, 257);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(205, 116);
+            this.panel13.TabIndex = 16;
             // 
-            // AnalogMeasure4
+            // panel14
             // 
-            this.AnalogMeasure4.AutoSize = true;
-            this.AnalogMeasure4.Location = new System.Drawing.Point(529, 117);
-            this.AnalogMeasure4.Name = "AnalogMeasure4";
-            this.AnalogMeasure4.Size = new System.Drawing.Size(20, 13);
-            this.AnalogMeasure4.TabIndex = 23;
-            this.AnalogMeasure4.Text = "A4";
+            this.panel14.Controls.Add(this.MotionControllerStatus);
+            this.panel14.Location = new System.Drawing.Point(-1, 28);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(205, 58);
+            this.panel14.TabIndex = 15;
             // 
-            // AnalogMeasure5
+            // MotionControllerStatus
             // 
-            this.AnalogMeasure5.AutoSize = true;
-            this.AnalogMeasure5.Location = new System.Drawing.Point(529, 138);
-            this.AnalogMeasure5.Name = "AnalogMeasure5";
-            this.AnalogMeasure5.Size = new System.Drawing.Size(20, 13);
-            this.AnalogMeasure5.TabIndex = 24;
-            this.AnalogMeasure5.Text = "A5";
+            this.MotionControllerStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MotionControllerStatus.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MotionControllerStatus.ForeColor = System.Drawing.Color.Red;
+            this.MotionControllerStatus.Location = new System.Drawing.Point(0, 0);
+            this.MotionControllerStatus.Name = "MotionControllerStatus";
+            this.MotionControllerStatus.Size = new System.Drawing.Size(205, 58);
+            this.MotionControllerStatus.TabIndex = 1;
+            this.MotionControllerStatus.Text = "DISCONNECTED";
+            this.MotionControllerStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // mUpdateTimer
+            // label8
             // 
-            this.mUpdateTimer.Tick += new System.EventHandler(this.mUpdateTimer_Tick);
+            this.label8.AutoSize = true;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(0, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(134, 21);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Motion Controller";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.AnalogMeasure5);
-            this.Controls.Add(this.AnalogMeasure4);
-            this.Controls.Add(this.AnalogMeasure3);
-            this.Controls.Add(this.AnalogMeasure2);
-            this.Controls.Add(this.AnalogMeasure1);
-            this.Controls.Add(this.AnalogMeasure0);
-            this.Controls.Add(this.ShieldGasFlowLabel);
-            this.Controls.Add(this.PlasmaGasFlowLabel);
+            this.ClientSize = new System.Drawing.Size(652, 485);
+            this.Controls.Add(this.panel13);
+            this.Controls.Add(this.panel11);
+            this.Controls.Add(this.ConfigureButton);
             this.Controls.Add(this.ArcButton);
             this.Controls.Add(this.PilotArcButton);
-            this.Controls.Add(this.WireSpeedMeasureLabel);
-            this.Controls.Add(this.MotorCurrentMeasureLabel);
-            this.Controls.Add(this.WeldingCurrentMeasureLabel);
-            this.Controls.Add(this.WeldingVoltageMeasureLabel);
-            this.Controls.Add(this.WireAvailableLabel);
-            this.Controls.Add(this.WireAvailableLed);
-            this.Controls.Add(this.StickingRemediedLabel);
-            this.Controls.Add(this.StickingRemediedLed);
-            this.Controls.Add(this.PilotArcLabel);
-            this.Controls.Add(this.PilotArcLed);
-            this.Controls.Add(this.PulseSyncLabel);
-            this.Controls.Add(this.PulseSyncLed);
-            this.Controls.Add(this.CommunicationReadyLabel);
-            this.Controls.Add(this.CommunicationReadyLed);
-            this.Controls.Add(this.PowerSourceReadyLabel);
-            this.Controls.Add(this.PowerSourceReadyLed);
-            this.Controls.Add(this.CollisionProtectionLabel);
-            this.Controls.Add(this.CollisionProtectionLed);
-            this.Controls.Add(this.MainCurrentLabel);
-            this.Controls.Add(this.MainCurrentLed);
-            this.Controls.Add(this.ProcessActiveLabel);
-            this.Controls.Add(this.ProcessActiveLed);
-            this.Controls.Add(this.CurrentFlowLabel);
-            this.Controls.Add(this.CurrentFlowLed);
+            this.Controls.Add(this.ResetButton);
+            this.Controls.Add(this.ConnectButton);
+            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Name = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            this.panel14.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel CurrentFlowLed;
-        private System.Windows.Forms.Label CurrentFlowLabel;
-        private System.Windows.Forms.Panel ProcessActiveLed;
-        private System.Windows.Forms.Label ProcessActiveLabel;
-        private System.Windows.Forms.Panel MainCurrentLed;
-        private System.Windows.Forms.Label MainCurrentLabel;
-        private System.Windows.Forms.Panel CollisionProtectionLed;
-        private System.Windows.Forms.Label CollisionProtectionLabel;
-        private System.Windows.Forms.Panel PowerSourceReadyLed;
-        private System.Windows.Forms.Label PowerSourceReadyLabel;
-        private System.Windows.Forms.Panel CommunicationReadyLed;
-        private System.Windows.Forms.Label CommunicationReadyLabel;
-        private System.Windows.Forms.Panel PulseSyncLed;
-        private System.Windows.Forms.Label PulseSyncLabel;
-        private System.Windows.Forms.Panel PilotArcLed;
-        private System.Windows.Forms.Label PilotArcLabel;
-        private System.Windows.Forms.Panel StickingRemediedLed;
-        private System.Windows.Forms.Label StickingRemediedLabel;
-        private System.Windows.Forms.Panel WireAvailableLed;
-        private System.Windows.Forms.Label WireAvailableLabel;
-        private System.Windows.Forms.Label WeldingVoltageMeasureLabel;
-        private System.Windows.Forms.Label WeldingCurrentMeasureLabel;
-        private System.Windows.Forms.Label MotorCurrentMeasureLabel;
-        private System.Windows.Forms.Label WireSpeedMeasureLabel;
+        private System.Windows.Forms.Timer mPollingTimer;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label PowerSourceStatus;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button ConnectButton;
+        private System.Windows.Forms.Button ResetButton;
         private System.Windows.Forms.Button PilotArcButton;
         private System.Windows.Forms.Button ArcButton;
-        private System.Windows.Forms.Label PlasmaGasFlowLabel;
-        private System.Windows.Forms.Label ShieldGasFlowLabel;
-        private System.Windows.Forms.Label AnalogMeasure0;
-        private System.Windows.Forms.Label AnalogMeasure1;
-        private System.Windows.Forms.Label AnalogMeasure2;
-        private System.Windows.Forms.Label AnalogMeasure3;
-        private System.Windows.Forms.Label AnalogMeasure4;
-        private System.Windows.Forms.Label AnalogMeasure5;
-        private System.Windows.Forms.Timer mUpdateTimer;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label CommunicationStatus;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Label PilotArcStatus;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Label ProcessStatus;
+        private LiveCharts.WinForms.SolidGauge WeldingVoltageGauge;
+        private LiveCharts.WinForms.SolidGauge WeldingCurrentGauge;
+        private System.Windows.Forms.Button ConfigureButton;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Label ErrorNumber;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Label MotionControllerStatus;
+        private System.Windows.Forms.Label label8;
     }
 }
 
